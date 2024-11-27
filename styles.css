@@ -3,7 +3,7 @@
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background: url('5.webp') no-repeat center center;
+            background: url('5.jpg') no-repeat center center;
             background-size: contain;  /* Ensures the image fits within the viewport without cropping */
             background-position: center center;  /* Keeps the image centered */
             background-color: black;  /* Fills any empty space with black */
