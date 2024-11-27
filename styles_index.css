@@ -1,0 +1,166 @@
+/* Base Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: url('5.jpg') no-repeat center center; /* Background is non-responsive */
+    background-size: auto;  /* Keeps the image at its natural dimensions */
+    background-position: center center;
+    background-color: black;  /* Fills the remaining space with black */
+    background-attachment: fixed;  /* Keeps the background fixed during scrolling */
+    color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive Container */
+.container {
+    text-align: center;
+    max-width: 90%; /* Adjusts width based on screen size */
+    max-width: 600px; /* Limits container size on larger screens */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    animation: fadeIn 1s forwards ease-in-out; /* Preserve the fade-in animation */
+    transform: translateY(50px); /* Ensures animation starts at this position */
+}
+
+/* Profile Section */
+.profile {
+    margin-bottom: 30px;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #3f3f3f;
+    animation: popIn 0.8s ease-in-out; /* Preserve the pop-in animation */
+}
+
+/* Headings */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin: 0;
+    color: #fff;
+}
+
+.tagline {
+    font-size: 16px;
+    font-style: italic;
+    color: #bbb;
+}
+
+/* Links Section */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.link {
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(135deg, #444, #222);
+    padding: 15px 20px;
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 18px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s; /* Preserve hover transition */
+    animation: slideIn 0.8s ease-in-out forwards;
+    animation-delay: calc(var(--order) * 0.1s); /* Staggered animation timing */
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+/* Hover Effect */
+.link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: left 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.link:hover::before {
+    left: 100%; /* Creates a sweeping hover effect */
+}
+
+.link:hover {
+    transform: scale(1.05); /* Slight zoom-in effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Shadow on hover */
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+footer a {
+    color: #888;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Adjusted font size for smaller screens */
+    }
+
+    .tagline {
+        font-size: 0.9rem;
+    }
+
+    .link {
+        font-size: 0.9rem;
+        padding: 10px 15px; /* Adjust link padding for smaller screens */
+    }
+}
