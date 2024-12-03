@@ -1,0 +1,263 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.sidebar-profile {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth scaling and fading */
+    position: relative;
+}
+.sidebar-title {
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+}
+
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-links li {
+    margin: 20px 0;
+}
+
+.sidebar-links a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #444, #333);
+    transition: all 0.3s ease-in-out;
+}
+
+.sidebar-links a:hover {
+    background: linear-gradient(to right, #06beb6, #48b1bf);
+    transform: translateX(10px);
+}
+
+.sidebar-links a.active {
+    background-color: #06beb6;
+    font-weight: bold;
+}
+
+.sidebar-profile:hover {
+    content: url('4.jpg'); /* Replace with the path to your hover image */
+    transform: scale(1); /* Optional: Slight zoom-in effect */
+    opacity: 0.8; /* Optional: Slight transparency */
+}
+
+.sidebar-profile::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('4.jpg'); /* Replace with the path to your hover image */
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%; /* Match the round shape of the profile picture */
+    opacity: 0; /* Initially invisible */
+    transition: opacity 0.5s ease; /* Smooth fade-in */
+}
+
+.sidebar-profile:hover {
+    transform: scale(1.1); /* Slight zoom-in effect */
+    opacity: 0.9; /* Slight transparency */
+}
+
+.sidebar-profile:hover::after {
+    opacity: 1; /* Fade in the hover image */
+}
+
+/* Content Section Styles */
+.content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    background-color: #f4f4f4;
+    overflow-y: scroll;
+}
+
+.container {
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+}
+
+.section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    scroll-snap-align: start;
+}
+
+
+.sidebar-links a.active {
+    background-color: #06beb6;
+    font-weight: bold;
+    color: white;
+    border-left: 4px solid #48b1bf; /* Optional: Left border for emphasis */
+}
+
+
+
+
+
+/* Skills Section */
+.Skills  {
+    background-color: #1C2833; /* Very Dark Gray */
+    color: #ECF0F1;
+}
+
+/* Education Section */
+.Education {
+    background-color: #2E4053; /* Dark Steel Blue */
+    color: #ECF0F1;
+}
+
+/* Contact Section */
+.Contact {
+    background-color: #17202A; /* Almost Black */
+    color: #ECF0F1;
+}
+
+/* Welcome Section */
+.Welcome {
+    background-color: #2C3E50; /* Dark Blue */
+    color: #ECF0F1; /* Light text for contrast */
+}
+
+/* Experience Section */
+.Experience {
+    background-color: #1C1C1C; /* Dark Gray */
+    color: #FFFFFF; /* White */
+}
+
+
+
+
+
+/* Welcome Section */
+.Welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.Welcome::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.welcome-container {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.welcome-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.welcome-description {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Flip Cards */
+.welcome-flipcards {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 150px;
+    height: 150px;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.flip-card-front {
+    background: linear-gradient(135deg, #48b1bf, #06beb6);
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.flip-card-back {
+    background: #2a5298;
+    color: #fff;
+    transform: rotateY(180deg);
+    font-size: 1rem;
+    font-style: italic;
+}
+
